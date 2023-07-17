@@ -52,12 +52,18 @@ nav p {
   align-items: center;
 }
 
+.transactions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .green {
   color: green;
 }
 
 .yellow {
-  color: yellow;
+  color: #e8bf34;
 }
 
 .red {

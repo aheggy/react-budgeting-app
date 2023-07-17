@@ -7,7 +7,6 @@ function Transactions() {
   const [transactions, setTransactions] = useState([]);
 
   let balance = 0;
-  console.log(transactions);
   for (let elemnt of transactions) {
     balance += Number(elemnt.amount);
   }
@@ -19,7 +18,7 @@ function Transactions() {
   }, []);
 
   return (
-    <div className="Logs">
+    <div className="transactions">
       <section>
         <h1
           className={balance > 100 ? "green" : balance >= 0 ? "yellow" : "red"}
