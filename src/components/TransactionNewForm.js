@@ -7,7 +7,7 @@ const TransactionNewForm = () => {
   const navigate = useNavigate();
 
   const [transaction, setTransaction] = useState({
-    itemName: "",
+    item_name: "",
     amount: "",
     date: "",
     from: "",
@@ -18,7 +18,7 @@ const TransactionNewForm = () => {
     try {
       await axios.post(`${URL}/transactions`, newTransaction);
       setTransaction({
-        itemName: "",
+        item_name: "",
         amount: "",
         date: "",
         from: "",
@@ -51,25 +51,25 @@ const TransactionNewForm = () => {
         <input
           id="date"
           value={transaction.date}
-          type="text"
+          type="date"
           onChange={handleInputChange}
           placeholder="Date"
           required
         />
-        <label htmlFor="itemName">Name:</label>
+        <label htmlFor="item_name">Name:</label>
         <input
-          id="itemName"
+          id="item_name"
+          value={transaction.item_name}
           type="text"
-          required
-          value={transaction.itemName}
-          placeholder="Name"
           onChange={handleInputChange}
+          placeholder="Name"
+          required
         />
 
         <label htmlFor="amount">Amount:</label>
         <input
           id="amount"
-          type="text"
+          type="number"
           name="amount"
           value={transaction.amount}
           placeholder="Amount"

@@ -8,7 +8,7 @@ export default function TransactionEditForm() {
   const navigate = useNavigate();
 
   const [transaction, setTransaction] = useState({
-    itemName: "",
+    item_name: "",
     amount: "",
     date: "",
     from: "",
@@ -20,7 +20,7 @@ export default function TransactionEditForm() {
       .put(`${URL}/transactions/${index}`, transaction)
       .then((response) => {
         setTransaction(response.data);
-        navigate(`/transaction/${index}`);
+        navigate(`/transactions/${index}`);
       })
       .catch((c) => console.warn("catch", c));
   };
@@ -29,37 +29,39 @@ export default function TransactionEditForm() {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
+  
   useEffect(() => {
-    axios
-      .get(`${URL}/transaction/${index}`)
+      axios
+      .get(`${URL}/transactions/${index}`)
       .then((response) => {
-        setTransaction(response.data);
-      })
-      .catch((e) => console.error(e));
-  }, [index]);
+          setTransaction({ ...response.data});
+        })
+        .catch((e) => console.error(e));
+    }, [index]);
 
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    updateTransaction();
-  };
-  return (
+    const handleSubmit = (event) => {
+      event.preventDefault();
+      updateTransaction();
+    };
+
+    return (
     <div className="editForm">
       <form onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input
           id="date"
           value={transaction.date}
-          type="text"
+          type="date"
           onChange={handleInputChange}
           placeholder="Date"
           required
         />
-        <label htmlFor="itemName">Name:</label>
+        <label htmlFor="item_name">Name:</label>
         <input
-          id="itemName"
+          id="item_name"
           type="text"
           required
-          value={transaction.itemName}
+          value={transaction.item_name}
           placeholder="Name"
           onChange={handleInputChange}
         />
@@ -67,7 +69,7 @@ export default function TransactionEditForm() {
         <label htmlFor="amount">Amount:</label>
         <input
           id="amount"
-          type="text"
+          type="number"
           name="amount"
           value={transaction.amount}
           placeholder="Amount"
