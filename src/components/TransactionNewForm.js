@@ -15,19 +15,14 @@ const TransactionNewForm = () => {
   });
 
   const addTransaction = async (newTransaction) => {
-    try {
-      await axios.post(`${URL}/transactions`, newTransaction);
-      setTransaction({
-        item_name: "",
-        amount: "",
-        date: "",
-        from: "",
-        category: "",
-      });
-      navigate(`/transactions`);
-    } catch (error) {
-      console.error("Error:", error);
-    }
+    axios
+    .post(`${URL}/transactions`, newTransaction)
+    .then (() => {
+        navigate(`/transactions`)
+      })
+    .catch((error) => {
+        console.error("Error:", error);
+     }) 
   };
 
   const handleInputChange = (event) => {
