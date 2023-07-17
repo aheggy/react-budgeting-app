@@ -1,9 +1,10 @@
+# Budgeting app back-end link
+[Click here for Budgeting app back-end](https://github.com/aheggy/express-budgeting-app).
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Budgeting app back end
-[Budgeting app back end](https://github.com/aheggy/express-budgeting-app).
 
 ## Available Scripts
 
