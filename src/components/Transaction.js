@@ -1,11 +1,14 @@
 import { Link } from "react-router-dom";
 
 function Transaction({ transaction, index }) {
+
+
+
   return (
     // <div className="showCard">
     <tr>
       <td>
-        {transaction.date}
+        {new Date(transaction.date).toLocaleString("en-US", { month: "long" })}
       </td>
       <td>
         <a href={`/transactions/${index}`}>
