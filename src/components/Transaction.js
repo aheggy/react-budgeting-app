@@ -8,7 +8,7 @@ function Transaction({ transaction, index }) {
     // <div className="showCard">
     <tr>
       <td>
-        {new Date(transaction.date).toLocaleString("en-US", { month: "long" })}
+        {new Date(transaction.date).toLocaleString("en-US", { month: "long", day: "numeric" })}
       </td>
       <td>
         <a href={`/transactions/${index}`}>
