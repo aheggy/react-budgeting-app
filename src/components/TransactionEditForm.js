@@ -1,13 +1,16 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { v4 as uuidv4 } from 'uuid';
 const URL = process.env.REACT_APP_API_URL;
+
 
 export default function TransactionEditForm() {
   let { index } = useParams();
   const navigate = useNavigate();
 
   const [transaction, setTransaction] = useState({
+    id: uuidv4(),
     item_name: "",
     amount: "",
     date: "",

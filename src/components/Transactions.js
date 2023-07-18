@@ -16,7 +16,7 @@ function Transactions() {
       .then((response) => setTransactions(response.data))
       .catch((error) => console.error("catch", error));
   }, []);
-
+  console.log(transactions)
   return (
     <div className="transactions">
       <section>

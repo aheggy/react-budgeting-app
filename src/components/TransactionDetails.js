@@ -37,6 +37,7 @@ export default function TransactionDetails() {
         <h2>
           {transactions.item_name}
         </h2>
+        <p>ID: {transactions.id}</p>
         <p>Amount: {transactions.amount}</p>
         <p>From: {transactions.from}</p>
         <p>Category: {transactions.category}</p>
