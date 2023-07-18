@@ -35,7 +35,7 @@ export default function TransactionDetails() {
     <article className="detailsCard">
       <div className="card">
         <h2>
-          {transactions.item_name} - ID {transactions.id}
+          {transactions.item_name}
         </h2>
         <p>Amount: {transactions.amount}</p>
         <p>From: {transactions.from}</p>

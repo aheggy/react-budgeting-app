@@ -29,23 +29,23 @@ export default function TransactionEditForm() {
     setTransaction({ ...transaction, [event.target.id]: event.target.value });
   };
 
-  
   useEffect(() => {
-      axios
+    axios
       .get(`${URL}/transactions/${index}`)
       .then((response) => {
-          setTransaction({ ...response.data});
-        })
-        .catch((e) => console.error(e));
-    }, [index]);
+        setTransaction({ ...response.data });
+      })
+      .catch((e) => console.error(e));
+  }, [index]);
 
-    const handleSubmit = (event) => {
-      event.preventDefault();
-      updateTransaction();
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    updateTransaction();
+  };
 
-    return (
+  return (
     <div className="editForm">
+      <h1>Edit an existed item</h1>
       <form onSubmit={handleSubmit}>
         <label htmlFor="date">Date:</label>
         <input
@@ -97,15 +97,16 @@ export default function TransactionEditForm() {
         />
 
         <br />
-        {/* <button type="submit">Edit</button> */}
-        <button className="btn btn-outline-secondary" type="submit">
-          {" "}
-          Submit{" "}
-        </button>
+        <div className="editButton">
+          <button className="btn" type="submit">
+            {" "}
+            Submit{" "}
+          </button>
+          <Link to={`/transactions/${index}`}>
+            <button className="btn">Back</button>
+          </Link>
+        </div>
       </form>
-      <Link to={`/transactions/${index}`}>
-        <button className="btn btn-outline-secondary">Back</button>
-      </Link>
     </div>
   );
 }
